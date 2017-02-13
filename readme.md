@@ -9,3 +9,6 @@ An example REST API in node.js app using mongo.
 # Connecting to local mongo in /bin
 ./mongo
 ```
+
+# Testing API requests
+https://www.getpostman.com/
