@@ -9,14 +9,14 @@ npm install
 Download mongo to test locally
 https://www.mongodb.com/download-center#community
 
-Install in users root folder
+Install in users root folder (Mac OS X)
 ``` bash
 mkdir mongo
 mkdir mongo-data
 ```
 
 ``` bash
-# Run mongod in /bin to prepare mongo-data folder
+# Run mongod in mongo/bin to prepare mongo-data folder
 ./mongod --dbpath ~/mongo-data
 
 # Connecting to local mongo in /bin
