@@ -1,6 +1,9 @@
 # Learning node.js
 An example REST API in node.js app using mongo.
 
+Demo:
+https://nodejs-todo-app.herokuapp.com/todos/
+
 Getting started
 ``` bash
 npm install
@@ -32,4 +35,17 @@ https://www.getpostman.com/
 # Monitor tests
 ``` bash
 npm run test-watch
+```
+
+# Deploying to Heroku
+``` bash
+heroku create
+```
+
+# Create MongoLab instance through Heroku
+``` bash
+heroku addons:create mongolab:sandbox
+
+heroku config
+# Copy and paste MongoLab Url to server/db/mongoose.js @ mongoose.connect()
 ```
