@@ -4,7 +4,7 @@ An example REST API in node.js app using mongo.
 Demo:
 https://nodejs-todo-app.herokuapp.com/todos/
 
-Getting started
+# Getting started
 ``` bash
 npm install
 ```
