@@ -11,7 +11,9 @@ const todos = [{
   text: 'First test todo'
 }, {
   _id: new ObjectId(),
-  text: 'Second test todo'
+  text: 'Second test todo',
+  completed: true,
+  completedAt: 333
 }];
 
 // truncate before starting test
@@ -143,6 +145,43 @@ describe('POST /todos', () => {
     });
   });
 
+  describe('PATCH /todos/:id', () => {
+    it('should update the todo', (done) => {
+      var hexObjectId = todos[0]._id.toHexString();
+      var data = {
+        text: 'Updated text',
+        completed: true,
+        completedAt: new Date().getTime()
+      }
+      request(app)
+        .patch(`/todos/${hexObjectId}`)
+        .send(data)
+        .expect(200)
+        .expect((response) => {
+          expect(response.body.todo.text).toBe(data.text);
+          expect(response.body.todo.completed).toBe(true);
+          expect(response.body.todo.completedAt).toBeA('number');
+        })
+        .end(done);
+    });
 
+    it('should clear completedAt when todo is not completed', (done) => {
+      var hexObjectId = todos[1]._id.toHexString();
+      var data = {
+        text: 'Updated text 2',
+        completed: false,
+      };
+      request(app)
+        .patch(`/todos/${hexObjectId}`)
+        .send(data)
+        .expect(200)
+        .expect((response) => {
+          expect(response.body.todo.text).toBe(data.text);
+          expect(response.body.todo.completed).toBe(false);
+          expect(response.body.todo.completedAt).toNotExist();
+        })
+        .end(done);
+    });
+  });
 
 });
