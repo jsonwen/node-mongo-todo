@@ -28,3 +28,8 @@ https://robomongo.org/
 
 # Testing API requests
 https://www.getpostman.com/
+
+# Monitor tests
+``` bash
+npm run test-watch
+```
