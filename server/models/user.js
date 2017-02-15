@@ -44,7 +44,7 @@ UserSchema.methods.toJSON = function() {
 
 // this is a custom created method
 UserSchema.methods.generateAuthToken = function () {
-  var user = this;
+  var user = this; // instance methods are called with the individual document
   var access = 'auth';
   var token = jwt.sign({
     _id: user._id.toHexString(),
@@ -70,6 +70,28 @@ UserSchema.methods.generateAuthToken = function () {
       The return value is token in this case
     */
     return token;
+  });
+};
+
+// UserSchema.statics are model methods
+// UserSchema.methods are instance methods
+UserSchema.statics.findByToken = function(token) {
+  var User = this; // model methods get called with the model as the this binding
+  var decoded;
+
+  try {
+    decoded = jwt.verify(token, 'secret123');
+  } catch (e) {
+    // return new Promise((resolve, reject) => {
+    //   reject();
+    // });
+    return Promise.reject();
+  }
+
+  return User.findOne({
+    _id: decoded._id,
+    'tokens.token': token,
+    'tokens.access': 'auth'
   });
 };
 
