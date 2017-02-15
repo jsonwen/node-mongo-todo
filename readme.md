@@ -59,6 +59,42 @@ Unset JWT_SECRET
 heroku config:unset JWT_SECRET
 ```
 
+# Create config.json
+Create a config.json to dynamically assign environment variables
+``` bash
+First create a config.json file in /server/config/ and define the key value pairs below.
+
+Example:
+{
+  "test": {
+    "PORT": 3000,
+    "MONGODB_URI": "mongodb://localhost:27017/TodoAppTests",
+    "JWT_SECRET": "[RANDOM STRING]"
+  },
+  "development": {
+    "PORT": 3000,
+    "MONGODB_URI": "mongodb://localhost:27017/TodoApp",
+    "JWT_SECRET": "[RANDOM STRING]"
+  }
+}
+
+Don't forget to add this file in the .gitignore!
+server/config/config.json
+```
+
+{
+  "test": {
+    "PORT": 3000,
+    "MONGODB_URI": "mongodb://localhost:27017/TodoAppTests",
+    "JWT_SECRET": "mc1sF28nx21#C!@CFDSAOLJ$4124!$%GBFSDS"
+  },
+  "development": {
+    "PORT": 3000,
+    "MONGODB_URI": "mongodb://localhost:27017/TodoApp",
+    "JWT_SECRET": "4jl12c!@v!VXZKL$12XKckl!@$CV!&^_Xda@klc"
+  }
+}
+
 # Create MongoLab instance through Heroku
 ``` bash
 heroku addons:create mongolab:sandbox
