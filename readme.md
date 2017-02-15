@@ -73,8 +73,9 @@ heroku config
 
 Set JWT_SECRET
 ``` bash
-heroku config:set NAME=JWT_SECRET
+heroku config:set JWT_SECRET=12345
 ```
+The JWT_SECRET will be overriden on heroku, so the value does not matter.
 
 Get JWT_SECRET
 ``` bash
