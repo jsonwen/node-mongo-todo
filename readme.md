@@ -19,10 +19,10 @@ mkdir mongo-data
 ```
 
 ``` bash
-# Run mongod in mongo/bin to prepare mongo-data folder
+# Run MongoDB with mongod in mongo/bin and point to mongo-data folder
 ./mongod --dbpath ~/mongo-data
 
-# Connecting to local mongo in /bin
+# Connecting to local MongoDB in terminal in /bin (optional)
 ./mongo
 ```
 
