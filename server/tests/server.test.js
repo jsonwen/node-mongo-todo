@@ -291,4 +291,24 @@ describe('POST /todos', () => {
     });
   });
 
+  describe('DELETE /users/me/token', () => {
+    it('should remove auth token on logout', (done) => {
+      var token = users[0].tokens[0].token;
+      request(app)
+        .delete('/users/me/token')
+        .set('x-auth', token)
+        .expect(200)
+        .end((error, response) => {
+          if (error) {
+            return done(error);
+          };
+
+          User.findById(users[0]._id).then((user) => {
+            expect(user.tokens.length).toBe(0);
+            done();
+          }).catch((error) => done(error));
+        });
+    });
+  });
+
 });
