@@ -41,7 +41,7 @@ If you run "heroku config" you will find the environment variable "MONGODB_URI"
 
 This variable is one string consisting of different parts. Use these parts to login to your Heroku MongoDB production.
 
-The parts exists of the following:
+The parts exists of the following: (example)
 ``` bash
 mongodb://heroku_3uj1jd41:hj3lk12h333goapjdhyr0j4hj3op@ds151909.mlab.com:51909/heroku_3uj1jd41
 ```
