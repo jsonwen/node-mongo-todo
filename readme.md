@@ -26,8 +26,29 @@ mkdir mongo-data
 ./mongo
 ```
 
+# Create MongoLab instance through Heroku
+``` bash
+heroku addons:create mongolab:sandbox
+
+heroku config
+# Copy and paste MongoLab Url to server/db/mongoose.js @ mongoose.connect()
+```
+
 # Using app to view mongo data in GUI
 https://robomongo.org/
+
+If you run "heroku config" you will find the environment variable "MONGODB_URI"
+
+This variable is one string consisting of different parts. Use these parts to login to your Heroku MongoDB production.
+
+The parts exists of the following:
+``` bash
+mongodb://heroku_3uj1jd41:hj3lk12h333goapjdhyr0j4hj3op@ds151909.mlab.com:51909/heroku_3uj1jd41
+```
+With each part corresponding to:
+``` bash
+mongodb://username:password@address:port/database
+````
 
 # Testing API requests
 https://www.getpostman.com/
@@ -88,10 +109,4 @@ Don't forget to add this file in the .gitignore!
 server/config/config.json
 ```
 
-# Create MongoLab instance through Heroku
-``` bash
-heroku addons:create mongolab:sandbox
 
-heroku config
-# Copy and paste MongoLab Url to server/db/mongoose.js @ mongoose.connect()
-```
