@@ -41,6 +41,16 @@ app.get('/todos', authenticate, (request, response) => {
   });
 });
 
+app.get('/todos/unauthed', (request, response) => {
+  Todo.find().then((todos) => {
+    response.send({
+      todos
+    });
+  }, (error) => {
+    response.status(400).send(error);
+  });
+});
+
 app.get('/todos/:id', authenticate, (request, response) => {
   var id = request.params.id;
 

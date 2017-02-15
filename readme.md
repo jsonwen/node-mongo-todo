@@ -73,9 +73,9 @@ heroku config
 
 Set JWT_SECRET
 ``` bash
-heroku config:set JWT_SECRET=12345
+heroku config:set JWT_SECRET=32jhkic!@#Ckx!*)GGM54k2v432kcl3j48$04#fkGK
 ```
-The JWT_SECRET will be overriden on heroku, so the value does not matter.
+The JWT_SECRET value should be a random string.
 
 Get JWT_SECRET
 ``` bash
@@ -110,4 +110,12 @@ Don't forget to add this file in the .gitignore!
 server/config/config.json
 ```
 
+After creating the config.json file, deploy to heroku with
+``` bash
+heroku deploy
+```
 
+Check if correct value in JWT_SECRET is set from config.json
+``` bash
+heroku config
+```
