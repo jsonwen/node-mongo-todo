@@ -45,17 +45,23 @@ heroku create
 # Configuring environment variable in Heroku
 To properly run authentication using JWT
 
-``` bash
 Check current active config environment variables
+``` bash
 heroku config
+```
 
 Set JWT_SECRET
+``` bash
 heroku config:set NAME=JWT_SECRET
+```
 
 Get JWT_SECRET
+``` bash
 heroku config:get JWT_SECRET
+```
 
 Unset JWT_SECRET
+``` bash
 heroku config:unset JWT_SECRET
 ```
 
@@ -81,19 +87,6 @@ Example:
 Don't forget to add this file in the .gitignore!
 server/config/config.json
 ```
-
-{
-  "test": {
-    "PORT": 3000,
-    "MONGODB_URI": "mongodb://localhost:27017/TodoAppTests",
-    "JWT_SECRET": "mc1sF28nx21#C!@CFDSAOLJ$4124!$%GBFSDS"
-  },
-  "development": {
-    "PORT": 3000,
-    "MONGODB_URI": "mongodb://localhost:27017/TodoApp",
-    "JWT_SECRET": "4jl12c!@v!VXZKL$12XKckl!@$CV!&^_Xda@klc"
-  }
-}
 
 # Create MongoLab instance through Heroku
 ``` bash
