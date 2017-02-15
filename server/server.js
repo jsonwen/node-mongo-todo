@@ -103,13 +103,15 @@ app.patch('/todos/:id', (request, response) => {
   });
 });
 
-app.post('/users/', (request, response) => {
+app.post('/users', (request, response) => {
   const body = _.pick(request.body, ['email', 'password']);
-
   const user = new User(body);
 
-  user.save().then((user) => {
-    response.send(user);
+  user.save().then(() => {
+    return user.generateAuthToken();
+    //response.send(user);
+  }).then((token) => {
+    response.header('x-auth', token).send(user);
   }).catch((error) => {
     response.status(404).send(error);
   });
