@@ -10,7 +10,7 @@ const userTwoId = new ObjectId();
 const users = [{
   _id: userOneId,
   email: 'jason@leadsocial.com',
-  password: 'userOnePass',
+  password: 'password',
   tokens: [{
     access: 'auth',
     token: jwt.sign({ _id: userOneId, access: 'auth' }, 'abc123').toString()
