@@ -42,6 +42,23 @@ npm run test-watch
 heroku create
 ```
 
+# Configuring environment variable in Heroku
+To properly run authentication using JWT
+
+``` bash
+Check current active config environment variables
+heroku config
+
+Set JWT_SECRET
+heroku config:set NAME=JWT_SECRET
+
+Get JWT_SECRET
+heroku config:get JWT_SECRET
+
+Unset JWT_SECRET
+heroku config:unset JWT_SECRET
+```
+
 # Create MongoLab instance through Heroku
 ``` bash
 heroku addons:create mongolab:sandbox
